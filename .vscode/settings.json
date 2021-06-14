@@ -1,0 +1,96 @@
+{
+  "workbench.colorTheme": "Monokai Dimmed",
+  "code-runner.runInTerminal": true,
+  "workbench.sideBar.location": "left",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
+  },
+  "python.jediEnabled": false,
+  "outline.showFunctions": false,
+  "C_Cpp.updateChannel": "Insiders",
+  "debug.onTaskErrors": "debugAnyway",
+  "editor.renderWhitespace": "all",
+  "editor.roundedSelection": false,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "editor.rulers": [80],
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "jupyter.disableJupyterAutoStart": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editor.showTabs": false,
+  "settingsSync.ignoredSettings": [],
+  "python.languageServer": "Microsoft",
+  "editor.fontLigatures": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--ignore=W293, W504",
+    "--max-line-length=150",
+    "--max-complexity=20"
+  ],
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": ["--aggressive", "--aggressive"],
+  "autoDocstring.docstringFormat": "google",
+  "python.linting.pylintArgs": ["--load-plugins=pylint_django"],
+  "editor.formatOnSave": true,
+  "html.format.contentUnformatted": "",
+  "jest.debugMode": true,
+  "html.format.templating": true,
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.suggest.insertMode": "replace"
+  },
+  "[css]": {
+    "editor.tabSize": 2
+  },
+  "html.format.enable": true,
+  "beautify.language": {
+    "html": ["htm", "html", "django-html"]
+  },
+  "java.configuration.runtimes": [],
+  "vsicons.dontShowNewVersionMessage": true
+}
