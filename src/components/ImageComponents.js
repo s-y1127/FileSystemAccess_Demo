@@ -1,46 +1,66 @@
 import { useState } from 'react'
 
 const ImageComponents = () => {
-  const [url, setUrl] = useState('')
+  const [imgUrl, setImgUrl] = useState('')
+  const [dirText, setDirText] = useState('')
+  const [dirHandle, setDirHandle] = useState(null)
 
-  const save = () => {
-    const img = document.getElementById('img')
-
-    const canvas = document.createElement('canvas')
-    canvas.width = img.clientWidth
-    canvas.height = img.clientHeight
-
-    const context = canvas.getContext('2d')
-
-    context.drawImage(img, 0, 0)
-
-    saveImage(canvas.toBlob)
+  async function openDir() {
+    try {
+      const handle = await window.showDirectoryPicker()
+      setDirHandle(handle)
+      setDirText(handle.name)
+    } catch (e) {}
   }
 
-  async function saveImage(ImageData) {
-    // const options = {
-    //   type: 'saveFile', // セーブモード
-    //   accepts: [
-    //     {
-    //       mimeTypes: ['image/png'],
-    //     },
-    //   ],
-    // }
-    const handle = await window.showSaveFilePicker()
-    const writer = await handle.createWritable()
-    await writer.write(0, ImageData)
-    await writer.close()
+  async function saveImg() {
+    if (!imgUrl) return false
+    if (dirHandle) {
+      save(imgUrl, '')
+      // const INIT = 0
+      // const MAX = 1000
+      // const CHUNK = 100
+      // let promises = []
+
+      // console.log(`開始時間 ${new Date()}`)
+      // for (let index = INIT; index < MAX; index++) {
+      //   promises.push(save(imgUrl, index))
+
+      //   if ((index + 1) % CHUNK === 0) {
+      //     await Promise.all(promises)
+      //     promises = []
+      //   }
+      // }
+      // console.log(`終了時間時間 ${new Date()}`)
+    } else {
+      alert('保存先を選択してください')
+    }
+  }
+
+  async function save(url, num) {
+    const fileHandle = await dirHandle.getFileHandle(`test${num}.png`, {
+      create: true,
+    })
+    const writable = await fileHandle.createWritable()
+    const response = await fetch(url)
+    await response.body.pipeTo(writable)
+  }
+
+  const onChangeImgUrl = (e) => {
+    setImgUrl(e.target.value)
   }
 
   return (
     <div>
-      URLを指定してください
+      <button className="directory" type="button" onClick={openDir}>
+        Open directory
+      </button>
+      <pre className="directory">{dirText}</pre>
       <br />
-      <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
+      <input type="url" value={imgUrl} onChange={onChangeImgUrl} />
+      <button onClick={saveImg}>保存</button>
       <br />
-      <button onClick={save}>保存</button>
-      <br />
-      {url ? <img src={url} alt="" id="img" /> : false}
+      {imgUrl && <img src={imgUrl} alt="" id="img" />}
     </div>
   )
 }

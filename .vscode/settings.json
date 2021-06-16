@@ -92,5 +92,9 @@
     "html": ["htm", "html", "django-html"]
   },
   "java.configuration.runtimes": [],
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "cSpell.words": [
+    "directroy",
+    "wshshell"
+  ]
 }
